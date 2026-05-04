@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@300;400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Roboto Condensed", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", cursive;
+  
+  --color-primary: #FF6B00;
+  --color-dark: #0A0A0A;
+  --color-dark-alt: #1A1A1A;
+  --color-accent: #FFD700;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-dark text-gray-100 font-sans antialiased overflow-x-hidden;
+  }
+}
+
+.bg-pattern {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 107, 0, 0.02) 10px,
+    rgba(255, 107, 0, 0.02) 20px
+  );
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(20px) translateY(20px); }
+}
+
+.cta-polygon {
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+
+.text-glow {
+  filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.5));
+}
+
+.hero-customs-text::before {
+  content: 'CUSTOMS';
+  @apply absolute text-[25vw] font-display font-black text-primary/5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 tracking-widest;
+}
+
+.glass-morphism {
+  @apply bg-glass backdrop-blur-md border border-glass-border;
+}
+
+.hardware-border {
+  @apply border border-dashed border-white/20;
+}
+
+.skew-x-custom {
+  transform: skewX(-10deg);
+}
